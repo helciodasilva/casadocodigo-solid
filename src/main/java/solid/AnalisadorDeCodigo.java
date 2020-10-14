@@ -12,19 +12,23 @@ public class AnalisadorDeCodigo {
 	
 	private Arquivos arquivos = new Arquivos();
 	
+	private int qtdIfs = 0;
+
 	public int analisa() throws FileNotFoundException, IOException {
 		List<File> todosArquivos = arquivos.todosJava();
-		int qtdIfs = 0;
 		for (File arquivo : todosArquivos) {
-			String codigo = IOUtils.toString(new FileInputStream(arquivo), "UTF-8");
-
-			String[] tokens = codigo.split(" ");
-			for (String token : tokens) {
-				if (token.equals("if"))
-					qtdIfs++;
-			}
+			contaIfs(arquivo);
 		}
 		return qtdIfs;
+	}
+
+	private void contaIfs(File arquivo) throws FileNotFoundException, IOException {
+        String codigo = IOUtils.toString(new FileInputStream(arquivo), "UTF-8");
+		String[] tokens = codigo.split(" ");
+		for (String token : tokens) {
+			if (token.equals("if"))
+				qtdIfs++;
+		}
 	}
 
 }
