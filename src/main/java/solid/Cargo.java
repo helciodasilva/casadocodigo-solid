@@ -1,5 +1,17 @@
 package solid;
 
 public enum Cargo {
-	DESENVOLVEDOR, DBA, TESTER;
+	DESENVOLVEDOR(new DezOuVintePorCento()), // 
+	DBA(new QuinzeOuVinteCincoPorCento()), //
+	TESTER(new QuinzeOuVinteCincoPorCento());
+
+	private RegraDeCalculo regra;
+
+	Cargo(RegraDeCalculo regra) {
+		this.regra = regra;
+	}
+
+	public RegraDeCalculo getRegra() {
+		return regra;
+	}
 }
