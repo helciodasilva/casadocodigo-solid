@@ -9,6 +9,9 @@ class NFDao implements AcaoAposGerarNota {
 	public void executa(NotaFiscal nf) {
 
 	}
+
+	public void persiste(NotaFiscal nf) {
+	}
 }
 
 class QualquerOutraAcao implements AcaoAposGerarNota {

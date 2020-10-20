@@ -4,6 +4,7 @@ public class NotaFiscal {
 
 	private double valor;
 	private double impostoSimplesSobreO;
+	private double imposto;
 
 	public NotaFiscal(double valor, double impostoSimplesSobreO) {
 		this.valor = valor;
@@ -27,6 +28,10 @@ public class NotaFiscal {
 
 	public boolean ehDeSaoPaulo() {
 		return false;
+	}
+
+	public void setImposto(double imposto) {
+		this.imposto = imposto;
 	}
 
 }
